@@ -74,6 +74,12 @@ int main(int argc, char *argv[])
             n = read(sockfd, buffer, sizeof(buffer) - 1);
         }
         close(sockfd);
+        
+        // Add delay between port scans
+        if (argc > 3) {
+            int delay = atoi(argv[3]);
+            sleep(delay);
+        }
     }
 
     exit(0);
